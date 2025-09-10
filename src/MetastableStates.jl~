@@ -1,0 +1,61 @@
+using QuantumOptics
+
+
+
+NFock        # Size of the Fock basis
+a=0.19       #
+b=1/20       #
+kth = 1      # state of interest
+theta=0.2    # scaling parameter
+L = 7        # Size of the phase space
+
+bc=FockBasis(Nfock)
+
+aop=destroy(bc)
+adop=dagger(aop)
+x    = (1/2^(1/2))*(aop+adop)
+p    = im*(1/2^(1/2))*(adop-aop)
+
+
+HH  =  (1/2)*p^2+a*x^2+b*x^4
+HHs =  (1/2)*exp(-2*im*theta)*p^2+a*exp(2*im*theta)*x^2+b*x^3*exp(3*im*theta)
+
+ev = eigenstates(dense(HH))
+evs = eigenstates(dense(HHs))
+
+qbslist = []
+println("quasibound states:")
+global counter=0
+for i in 1:50
+  if (real(evs[1][i])>0)
+    if (real(evs[1][i])<7.40741)
+       global counter = counter + 1
+       append!(qbslist,i)
+       println(counter,"  resonant energy: (cs) ",real(evs[1][i]), "  lifetime   :",1/(2*abs((imag(evs[1][i])))))
+    end
+  end
+end
+
+
+using PyPlot
+x = [-L:0.1:L;]
+xc = x
+pc = x
+#for i in 1:1
+    subplot(1, 1, 1)
+    Dop = (im/2)*(adop^2-aop^2)
+    dilop = exp(theta*Dop)
+    psi = dilop*evs[2][qbslist[kth]]
+    #psi = evs[2][qbslist[kth]]
+    Q = wigner(psi, xc, pc)
+    pcolor(x, x, Q, cmap=:bwr,vmin=-0.2,vmax=0.2)
+#end
+
+
+tight_layout()
+savefig("output/Wigner_MetastableState.png")
+
+
+println("See file output/Wigner_MetastableState.png for the Wigner function of the ",kth," metastable state")
+
+
