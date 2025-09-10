@@ -25,20 +25,18 @@ To run this repository, please make sure the following environment is available:
 
 ## Usage  
 
-To run the code, navigate to the /src folder and execute the corresponding file:
+- Metastable state for a particular scaling (theta) parameter:
 
-- Transmission probabilities and Wigner function
-
-Edit the parameters in Probabilities_Fock.jl and run:
+Edit the parameters in MetastableState.jl and run:
 
 ```bash
-julia Probabilities_Fock.jl
+julia MetastableState.jl
 ```
 
-- Absolute volume of the Wigner function in the classically forbiden region
+- Stability of the metastable states with respect to the scaling parameter (theta)
 
-Edit the parameters in Wigner_Volume.jl and run:
+Edit the parameters in Stability_MetastableState.jl and run:
 
 ```bash
-julia Wigner_Volume.jl
+julia Stability_MetastableState.jl
 ```
