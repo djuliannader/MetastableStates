@@ -4,13 +4,14 @@ using HCubature
 
 
 Nfock=50          # Size of the Fock basis
-a=3             # parameter infront of the quartic term
-b=-1               # parameter infront of the qubic term
+a=2.6               # parameter infront of the quartic term
+b=-1              # parameter infront of the qubic term
 kth = 1           # state of interest
 theta=0.2         # scaling parameter
 L = 7             # Size of the phase space
 maxloc = 7.40     # local maximum of the potential
 minloc = 0.0      # local maximum of the potential
+xpint = 0.1      # size of the grid for the Wigner function
 
 
 
@@ -49,7 +50,7 @@ end
 
 
 using PyPlot
-x = [-L:0.1:L;]
+x = [-L:xpint:L;]
 xc = x
 pc = x
     subplot(1, 1, 1)
