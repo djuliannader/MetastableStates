@@ -4,9 +4,9 @@ using HCubature
 
 
 Nfock=50          # Size of the Fock basis
-a=2.6               # parameter infront of the quartic term
+a=3.75             # parameter infront of the quartic term
 b=-1              # parameter infront of the qubic term
-kth = 1           # state of interest
+kth = 2           # state of interest
 theta=0.2         # scaling parameter
 L = 7             # Size of the phase space
 maxloc = 7.40     # local maximum of the potential

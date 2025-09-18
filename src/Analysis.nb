@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[   2691195,      44479]
-NotebookOptionsPosition[   2687314,      44408]
-NotebookOutlinePosition[   2687706,      44424]
-CellTagsIndexPosition[   2687663,      44421]
+NotebookDataLength[   2830771,      47896]
+NotebookOptionsPosition[   2825770,      47807]
+NotebookOutlinePosition[   2826162,      47823]
+CellTagsIndexPosition[   2826119,      47820]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,7 +23,7 @@ Cell[BoxData[
   RowBox[{"SetDirectory", "@", 
    RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}]], "Input",
  CellChangeTimes->{{3.96649611344547*^9, 3.9664961171803427`*^9}},
- CellLabel->"In[92]:=",ExpressionUUID->"4b532097-4932-48e7-9c45-2cbea00f756e"],
+ CellLabel->"In[43]:=",ExpressionUUID->"4b532097-4932-48e7-9c45-2cbea00f756e"],
 
 Cell[CellGroupData[{
 
@@ -34,7 +34,7 @@ Cell["Potential and Hamiltonian", "Subsubsection",
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"a", "=", "2.6"}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"a", "=", "2.5"}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"b", "=", 
    RowBox[{"-", "1"}]}], ";"}], "\[IndentingNewLine]", 
@@ -57,193 +57,365 @@ Cell[BoxData[{
  CellChangeTimes->{{3.9664949466563673`*^9, 3.9664950111081877`*^9}, 
    3.96649517260828*^9, {3.966495237752591*^9, 3.966495238210153*^9}, {
    3.966495926204315*^9, 3.966495958850906*^9}, {3.966496491020904*^9, 
-   3.966496492802167*^9}, {3.9664976459491787`*^9, 3.966497647656893*^9}},
- CellLabel->
-  "In[198]:=",ExpressionUUID->"96c91295-646b-4539-b872-d9d66db0fc5e"],
+   3.966496492802167*^9}, {3.9664976459491787`*^9, 3.966497647656893*^9}, {
+   3.966574532659801*^9, 3.966574537135737*^9}},
+ CellLabel->"In[44]:=",ExpressionUUID->"96c91295-646b-4539-b872-d9d66db0fc5e"],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Plot", "[", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Local", " ", "maximum", " ", "and", " ", "minimum"}], "*)"}], 
+  "\[IndentingNewLine]", 
   RowBox[{
-   RowBox[{"V", "[", "q", "]"}], ",", 
-   RowBox[{"{", 
-    RowBox[{"q", ",", 
-     RowBox[{"-", "1.25"}], ",", "3"}], "}"}], ",", 
-   RowBox[{"Frame", "->", "True"}], ",", 
-   RowBox[{"LabelStyle", "->", 
-    RowBox[{"{", 
-     RowBox[{"Black", ",", "18"}], "}"}]}]}], "]"}]], "Input",
- CellChangeTimes->{{3.9664951823169527`*^9, 3.9664952552165327`*^9}, {
-  3.966495293606193*^9, 3.9664953561705236`*^9}, {3.9664959369092407`*^9, 
-  3.9664959385062*^9}},
- CellLabel->
-  "In[114]:=",ExpressionUUID->"09ec1595-b1ec-4c82-aae0-df7ef7aae426"],
+   RowBox[{
+    RowBox[{"sol", "=", 
+     RowBox[{"NSolve", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"D", "[", 
+         RowBox[{
+          RowBox[{"V", "[", "q", "]"}], ",", "q"}], "]"}], "==", "0"}], ",", 
+       "q"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"xminloc", "=", 
+    RowBox[{"q", "/.", " ", 
+     RowBox[{"sol", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{"xmaxloc", "=", 
+    RowBox[{"q", "/.", " ", 
+     RowBox[{"sol", "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{"Emaxloc", "=", 
+    RowBox[{"V", "[", "xmaxloc", "]"}]}], "\[IndentingNewLine]", 
+   RowBox[{"NSolve", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"V", "[", "q", "]"}], "==", "1"}], ",", "q"}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.966495367745281*^9, 3.9664954056096077`*^9}, {
+  3.966495507501113*^9, 3.96649555918766*^9}, {3.966495661063347*^9, 
+  3.966495720325707*^9}, {3.96649594240211*^9, 3.966495947798665*^9}, {
+  3.9664963426143713`*^9, 3.9664963605294113`*^9}, {3.9664981011118307`*^9, 
+  3.966498116810652*^9}, {3.9665749215243797`*^9, 3.966574944786459*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"dd3ec6c0-47f8-4b9e-83b7-5a55eff4d84e"],
+
+Cell[BoxData["0.`"], "Output",
+ CellChangeTimes->{
+  3.966495406609544*^9, {3.966495541491418*^9, 3.966495559618526*^9}, {
+   3.966495672552052*^9, 3.966495690626161*^9}, {3.966495721054125*^9, 
+   3.966495742365054*^9}, {3.966495948125093*^9, 3.966495962934042*^9}, 
+   3.966496497625012*^9, 3.966497650677896*^9, {3.9664981038780937`*^9, 
+   3.966498117165145*^9}, 3.966574842892857*^9, 3.966574945423678*^9, 
+   3.966579422923458*^9},
+ CellLabel->"Out[49]=",ExpressionUUID->"dc1271c4-7cf4-4a4c-8a55-13f406a2a5b5"],
+
+Cell[BoxData["1.6666666666666667`"], "Output",
+ CellChangeTimes->{
+  3.966495406609544*^9, {3.966495541491418*^9, 3.966495559618526*^9}, {
+   3.966495672552052*^9, 3.966495690626161*^9}, {3.966495721054125*^9, 
+   3.966495742365054*^9}, {3.966495948125093*^9, 3.966495962934042*^9}, 
+   3.966496497625012*^9, 3.966497650677896*^9, {3.9664981038780937`*^9, 
+   3.966498117165145*^9}, 3.966574842892857*^9, 3.966574945423678*^9, 
+   3.966579422924769*^9},
+ CellLabel->"Out[50]=",ExpressionUUID->"440a710f-5404-48e4-8208-0c4a9651c34b"],
+
+Cell[BoxData["2.314814814814815`"], "Output",
+ CellChangeTimes->{
+  3.966495406609544*^9, {3.966495541491418*^9, 3.966495559618526*^9}, {
+   3.966495672552052*^9, 3.966495690626161*^9}, {3.966495721054125*^9, 
+   3.966495742365054*^9}, {3.966495948125093*^9, 3.966495962934042*^9}, 
+   3.966496497625012*^9, 3.966497650677896*^9, {3.9664981038780937`*^9, 
+   3.966498117165145*^9}, 3.966574842892857*^9, 3.966574945423678*^9, 
+   3.966579422925654*^9},
+ CellLabel->"Out[51]=",ExpressionUUID->"f5033dbd-76cd-4c9a-8d07-dc50d3b66fb6"],
 
 Cell[BoxData[
- GraphicsBox[{{{}, {}, 
-    TagBox[
-     {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], Opacity[
-      1.], LineBox[CompressedData["
-1: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
-       "]]},
-     Annotation[#, "Charting`Private`Tag$5306#1"]& ]}, {}},
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"q", "\[Rule]", 
+     RowBox[{"-", "0.570668057827682`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"q", "\[Rule]", "0.7575690235640353`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"q", "\[Rule]", "2.313099034263647`"}], "}"}]}], "}"}]], "Output",\
+
+ CellChangeTimes->{
+  3.966495406609544*^9, {3.966495541491418*^9, 3.966495559618526*^9}, {
+   3.966495672552052*^9, 3.966495690626161*^9}, {3.966495721054125*^9, 
+   3.966495742365054*^9}, {3.966495948125093*^9, 3.966495962934042*^9}, 
+   3.966496497625012*^9, 3.966497650677896*^9, {3.9664981038780937`*^9, 
+   3.966498117165145*^9}, 3.966574842892857*^9, 3.966574945423678*^9, 
+   3.966579422926529*^9},
+ CellLabel->"Out[52]=",ExpressionUUID->"7409bb42-3f15-4e07-983e-3b33be5a8f03"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"fig1", "=", 
+  RowBox[{"Show", "[", 
+   RowBox[{
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"V", "[", "q", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"q", ",", 
+        RowBox[{"-", "2"}], ",", "3.5"}], "}"}], ",", 
+      RowBox[{"PlotRange", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "2"}], ",", "3.3"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", "8"}], ",", "6"}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"Frame", "->", "True"}], ",", 
+      RowBox[{"Axes", "->", "False"}], ",", 
+      RowBox[{"LabelStyle", "->", 
+       RowBox[{"{", 
+        RowBox[{"Black", ",", "18"}], "}"}]}]}], "]"}], ",", 
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "2.315"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "2"}], ",", "3.5"}], "}"}], ",", 
+      RowBox[{"PlotStyle", "->", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Dashed", ",", "Black"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"Dashed", ",", "Black"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+    RowBox[{"Plot", "[", 
+     RowBox[{
+      RowBox[{"{", "1", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", 
+        RowBox[{"-", "0.57"}], ",", "0.76"}], "}"}], ",", 
+      RowBox[{"PlotStyle", "->", "Red"}]}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9664951823169527`*^9, 3.9664952552165327`*^9}, {
+  3.966495293606193*^9, 3.9664953561705236`*^9}, {3.9664959369092407`*^9, 
+  3.9664959385062*^9}, {3.9665745449651947`*^9, 3.966574894022784*^9}, {
+  3.966574955967516*^9, 3.966574967667066*^9}, {3.966575092701521*^9, 
+  3.966575095776203*^9}},
+ CellLabel->"In[41]:=",ExpressionUUID->"50652d7f-6f7d-498c-acde-b63a7f82ad7f"],
+
+Cell[BoxData[
+ GraphicsBox[{{{{}, {}, 
+     TagBox[
+      {RGBColor[0.368417, 0.506779, 0.709798], AbsoluteThickness[1.6], 
+       Opacity[1.], LineBox[CompressedData["
+1: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
+        "]]},
+      Annotation[#, "Charting`Private`Tag$5689#1"]& ]}, {}}, {{{}, {}, 
+     TagBox[
+      {GrayLevel[0], AbsoluteThickness[1.6], Opacity[1.], 
+       Dashing[{Small, Small}], LineBox[CompressedData["
+1:eJxNz3tMEnAQB3AQNRFyvgqzwokKypwFli5W2gNcmZY6J6b9obSkxVJK0PQP
+l6Arm20oTcxyzenyEXPTNrHSIucsNE3L5cwidT7QVPAVICrVlvfjttvts9tt
+3/PlZSVctcNgMLF/+9/8WaGdsFqtbzH/y5TD2E8yI7tzixJDVpCjSPT3l6eQ
+lQqx8uUH5NuVxNzsMpv7KhZxloLMrq4IG+Bsg+vYgzXXMzbBQQ37OvqebYC9
+PZfq1/QmsKMvu+mXhxFMmm9MreeugymJZX6MnFXwox5cp6R6GSyYJxCYGj3a
+l3hoNogLYLca1nSMTAfmaXLrQgKmwQ2h7TJl1gRYGHy4jb86Bs4T/65rvjUM
+5quHXgTRe8HEpWvB4d/awacTtVUuH+WRO16kZ3ab09XgAmk2Fiv6BObGuI5O
++YyAU2Zo4jZHLZhV8GSM9m4SvCUrJgsiZ8Cz5clvyMo58PeEQEbYlUXwmdgF
+Cu+GAUwe7NqbemEF/CDa5VgpdQ084hStNGnXwVSqPV7RYQTH3W1uE+abwS7j
+/eWSQxbwZ4UguQe/BRbKzZmc7m0w3igJt8RjTu74bBQ2bZmBBce7vXoq3W0H
+/kFgDjdbkJMCKS3GURw4QTQkGe21B3sdfy3gqhzAfQEHt1bkjmBsZISUJt0F
+9s8facnjOYHdGM+N/BN4cCEpgqmnO4O1Puf2PHQigEvbVd03iciseKrooiuy
+QoL74uyFHDfdKSukIXc1MYlZUcj1Rw/goouQkwbut9LuIdvzzekOpchplV/V
+ajmyt0VWEF5rk0/tsOHfZZPvkqjRrgdZtzyZPK5B5vipVY+HkLeL88XuE8hK
+8py/YQo5RcUd7tchq3RHQksMyBmFtZMZa8ie3u7lbJPN/613TlE2kYXn9Qar
+FfkPOSEoTg==
+        "]]},
+      Annotation[#, "Charting`Private`Tag$5745#1"]& ], 
+     TagBox[
+      {GrayLevel[0], AbsoluteThickness[1.6], Opacity[1.], 
+       Dashing[{Small, Small}], LineBox[CompressedData["
+1:eJxTTMoPSmViYGAwAWIQfX/avYf////f3/o6cIdcK5OD0CwrnudKCL7L3Glm
+51z/wflLXC4szEr7A+drrpDcc3rZLzhfSuTd8i/vf8D5bIouq14Lf4fzxV+t
+jF4e/hXOVwqZqGxY9hnOn3mMeW/T3I9wfvYrbm6jk+8R8p3CJ3/xvIHzBRda
+PfWZ8ALOTzpZvkRP9Smcv8J4x4Q1+Q/h/AIdg23pn2/D+ZWl35asK7oC56cf
+uLhZU+sUnM/zLkPH/NYOON8p5N4svjOT7WH8t1p5R34mHoDz65qLGRlLzsP5
+4T4CN5/IX4fzo56pl25juwfnW9XNua1+8BGc/3dCq1y2/TM4//mkiH1ya17C
++XeCNAzNkt/C+c6+b5SScj/A+XIXDolF+32C83u9+Cx71L7A+dc5vNb8uPcV
+zldTY+Gcvuc7nB/Qvm5bQdVPOJ/vwdlJTfq/4fxL07MjjnH+hfMLJv/Mcz3y
+D87n/N5k/juQwQHG93BjTPhoyAjnBwrumt/MywTn3+U2urLuN4IfpqG08ftN
+Zjg/qORi081TLHC+hM3u7PDtrHD+aVXZv58ms8H5jPZ2zerN7HC+StX1jZVJ
+HHC+oOHq7+m2nHB+o7id0XstLjj/nryn6BQObjh/uakMs1cLgl/g/f7D//8I
+PgCfhnyS
+        "]]},
+      Annotation[#, "Charting`Private`Tag$5745#2"]& ]}, {}}, {{{}, {}, 
+     TagBox[
+      {RGBColor[1, 0, 0], AbsoluteThickness[1.6], Opacity[1.], 
+       LineBox[CompressedData["
+1:eJxTTMoPSmViYGAwAWIQfavXZWqB7aP9DGDwwV5Iozam6dJDON/z0FblKekI
+vmNPf++u+gdwPsOV4yU1fvfhfMsdkfxMy+7C+S3H9yT03rwN58f9E7G4rH0L
+YX6C3TG5qBtw/vtXAVNfTLgG56vMjXiV8+wKnJ9dZfjtm/hlhHvq/7dbZ1yE
+8xdH5m7903gezn/BVXei9/VpON+bu/L55Ekn4PyLiWIlSz8egfPPcrY1bU48
+COefYTxgmSu3B853m7PDs+vlFjj/+0rux0rxa+D8x8/jLu2dNhvOf9Ser5PY
+F2AP91/8rBkP98yG8xW7195wiFgD578M2RQl924LnB/hmOmq3Lcbzt9/IHcV
+R/xBOH/LRJtlXTuPwPmtPJkmjDEn4PyHpocdqt+ehvPlBYwdGxzPw/myXgyv
+9uRdhPNnPynU/S97Gc6PD/ulf/jIFThfcO7G6sb+a3C+yZ5ix1brG3C+64aU
+gGbuW3D+8ZqEm8f23Ibz+xSKFXtS78L5zjO3bPI2ug/nm5YyxGsUPIDz7Tns
+ODUiH8L5b9jYJ7+wfQTnXyy8etNb+DGcr+du7brmF4J/uGNZ7vpLT+D836Zz
+S4uXPYXzV/lqLzLpeQbnT7y4r3tG0nM4/0CbKqPTLQT/vXVP2evAF3A+AHvU
+GTw=
+        "]]},
+      Annotation[#, "Charting`Private`Tag$5800#1"]& ]}, {}}},
   AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
-  Axes->{True, True},
+  Axes->{False, False},
   AxesLabel->{None, None},
   AxesOrigin->{0, 0},
   DisplayFunction->Identity,
@@ -275,85 +447,30 @@ cc+4Zr/sTQTL9BQpmh3ckfsUA7+HQGSn8TKFgptAMLM6mXP2f/G0h1M=
          Part[#, 1]], 
         (Identity[#]& )[
          Part[#, 2]]}& )}},
-  PlotRange->{{-1.25, 3}, {0., 6.640623942920969}},
+  PlotRange->{{-2., 3.3}, {-8., 6.}},
   PlotRangeClipping->True,
-  PlotRangePadding->{{
-     Scaled[0.02], 
-     Scaled[0.02]}, {
-     Scaled[0.05], 
-     Scaled[0.05]}},
+  PlotRangePadding->{{0, 0}, {0, 0}},
   Ticks->{Automatic, Automatic}]], "Output",
  CellChangeTimes->{{3.966495217852841*^9, 3.9664952558860197`*^9}, {
    3.966495302269854*^9, 3.966495356565873*^9}, {3.966495939186192*^9, 
-   3.9664959609752703`*^9}, 3.966496494967657*^9},
- CellLabel->
-  "Out[114]=",ExpressionUUID->"4836edbe-89a8-4872-94c2-ae1cbc57380e"]
+   3.9664959609752703`*^9}, 3.966496494967657*^9, {3.966574539935151*^9, 
+   3.966574600909919*^9}, {3.966574632351967*^9, 3.966574758865251*^9}, {
+   3.9665748281658792`*^9, 3.966574848684443*^9}, 3.966574894751655*^9, 
+   3.966574968250148*^9, 3.966575096300251*^9},
+ CellLabel->"Out[41]=",ExpressionUUID->"6edd8276-89ae-419f-9364-6463b21d1801"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{
-  RowBox[{"(*", 
-   RowBox[{"Local", " ", "maximum", " ", "and", " ", "minimum"}], "*)"}], 
-  "\[IndentingNewLine]", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"sol", "=", 
-     RowBox[{"NSolve", "[", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"D", "[", 
-         RowBox[{
-          RowBox[{"V", "[", "q", "]"}], ",", "q"}], "]"}], "==", "0"}], ",", 
-       "q"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{"xminloc", "=", 
-    RowBox[{"q", "/.", " ", 
-     RowBox[{"sol", "[", 
-      RowBox[{"[", "1", "]"}], "]"}]}]}], "\[IndentingNewLine]", 
-   RowBox[{"xmaxloc", "=", 
-    RowBox[{"q", "/.", " ", 
-     RowBox[{"sol", "[", 
-      RowBox[{"[", "2", "]"}], "]"}]}]}], "\[IndentingNewLine]", 
-   RowBox[{"Emaxloc", "=", 
-    RowBox[{"V", "[", "xmaxloc", "]"}]}]}]}]], "Input",
- CellChangeTimes->{{3.966495367745281*^9, 3.9664954056096077`*^9}, {
-  3.966495507501113*^9, 3.96649555918766*^9}, {3.966495661063347*^9, 
-  3.966495720325707*^9}, {3.96649594240211*^9, 3.966495947798665*^9}, {
-  3.9664963426143713`*^9, 3.9664963605294113`*^9}, {3.9664981011118307`*^9, 
-  3.966498116810652*^9}},
- CellLabel->
-  "In[238]:=",ExpressionUUID->"dd3ec6c0-47f8-4b9e-83b7-5a55eff4d84e"],
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<fig1.png\>\"", ",", "fig1"}], "]"}]], "Input",
+ CellChangeTimes->{{3.966575113686096*^9, 3.966575124281971*^9}},
+ CellLabel->"In[42]:=",ExpressionUUID->"89ee1b6c-571c-4a1c-8634-2ceabb4b20f4"],
 
-Cell[BoxData["0.`"], "Output",
- CellChangeTimes->{
-  3.966495406609544*^9, {3.966495541491418*^9, 3.966495559618526*^9}, {
-   3.966495672552052*^9, 3.966495690626161*^9}, {3.966495721054125*^9, 
-   3.966495742365054*^9}, {3.966495948125093*^9, 3.966495962934042*^9}, 
-   3.966496497625012*^9, 3.966497650677896*^9, {3.9664981038780937`*^9, 
-   3.966498117165145*^9}},
- CellLabel->
-  "Out[239]=",ExpressionUUID->"d16b1035-90d7-4fae-a3d6-7da53e168c9d"],
-
-Cell[BoxData["1.7333333333333334`"], "Output",
- CellChangeTimes->{
-  3.966495406609544*^9, {3.966495541491418*^9, 3.966495559618526*^9}, {
-   3.966495672552052*^9, 3.966495690626161*^9}, {3.966495721054125*^9, 
-   3.966495742365054*^9}, {3.966495948125093*^9, 3.966495962934042*^9}, 
-   3.966496497625012*^9, 3.966497650677896*^9, {3.9664981038780937`*^9, 
-   3.966498117166677*^9}},
- CellLabel->
-  "Out[240]=",ExpressionUUID->"edd0df2e-bbcc-45ed-8ac8-f0e4614485be"],
-
-Cell[BoxData["2.603851851851852`"], "Output",
- CellChangeTimes->{
-  3.966495406609544*^9, {3.966495541491418*^9, 3.966495559618526*^9}, {
-   3.966495672552052*^9, 3.966495690626161*^9}, {3.966495721054125*^9, 
-   3.966495742365054*^9}, {3.966495948125093*^9, 3.966495962934042*^9}, 
-   3.966496497625012*^9, 3.966497650677896*^9, {3.9664981038780937`*^9, 
-   3.96649811716815*^9}},
- CellLabel->
-  "Out[241]=",ExpressionUUID->"51b45f65-84fc-4acf-a321-4a54dd71de5c"]
+Cell[BoxData["\<\"fig1.png\"\>"], "Output",
+ CellChangeTimes->{3.9665751265487022`*^9},
+ CellLabel->"Out[42]=",ExpressionUUID->"a9d21a05-2e65-4728-aeb1-73522f12ebad"]
 }, Open  ]]
 }, Open  ]],
 
@@ -44404,6 +44521,3288 @@ Cell[BoxData["0.06118712378597987`"], "Print",
   "During evaluation of \
 In[347]:=",ExpressionUUID->"b0eefa14-4a89-45d4-820b-6f3b4b49d381"]
 }, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Stability of the metastable states", "Subsubsection",
+ CellChangeTimes->{{3.9665783976645823`*^9, 
+  3.966578408270761*^9}},ExpressionUUID->"cab94f02-6112-4bcc-91f8-\
+e816aeee8ed0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dathist", "=", 
+   RowBox[{"Import", "[", "\"\<output/eigenvalues_theta.dat\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.966579685918301*^9, 3.966579692596607*^9}, {
+  3.9665798248567944`*^9, 3.9665798650370626`*^9}},
+ CellLabel->"In[84]:=",ExpressionUUID->"b557d90d-4657-4ade-bf05-60d7b1b56e93"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ll", "=", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"1.04", ",", 
+      RowBox[{"-", "0.004"}]}], "}"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.966580133916397*^9, 3.966580164801993*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"b0a33e98-08bb-4cab-9ee5-de3f5a6eeb56"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"fig2", "=", 
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"DensityHistogram", "[", 
+      RowBox[{"dathist", ",", "100", ",", 
+       RowBox[{"PlotRange", "->", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "10"}], ",", "10"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "30"}], ",", "2"}], "}"}], ",", "All"}], "}"}]}], 
+       ",", 
+       RowBox[{"LabelStyle", "->", 
+        RowBox[{"{", 
+         RowBox[{"Black", ",", "20"}], "}"}]}], ",", 
+       RowBox[{"ColorFunction", "->", "\"\<ThermometerColors\>\""}], ",", 
+       RowBox[{"ChartLegends", "->", "Automatic"}]}], "]"}], ",", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", 
+        RowBox[{"AbsoluteThickness", "[", "3", "]"}], ",", 
+        RowBox[{"Circle", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1.04", ",", 
+            RowBox[{"-", "0.2"}]}], "}"}], ",", "0.8"}], "]"}]}], "}"}], 
+      "]"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.966579680321562*^9, 3.966579682887566*^9}, {
+   3.966579867650702*^9, 3.9665798700371437`*^9}, {3.966580004558899*^9, 
+   3.966580044683474*^9}, {3.966580167729834*^9, 3.966580222109047*^9}, {
+   3.966580357816658*^9, 3.966580367422678*^9}, {3.966580433040625*^9, 
+   3.966580447210772*^9}, {3.96658054249804*^9, 3.966580664911292*^9}, 
+   3.9665807395009937`*^9, {3.9665808229680367`*^9, 3.966580917071003*^9}, {
+   3.966581031998358*^9, 3.966581050762841*^9}, {3.9665811313970823`*^9, 
+   3.966581132988593*^9}},
+ CellLabel->"In[98]:=",ExpressionUUID->"9964ee54-4296-41ff-aa41-bf27487987ca"],
+
+Cell[BoxData[
+ TemplateBox[{
+   GraphicsBox[{{{{{
+         Directive[
+          RGBColor[0.163302, 0.119982, 0.79353]], 
+         TagBox[
+          TooltipBox[
+           TagBox[{
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-8., -44.5}, {-7.8, -44.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7.8, -26.}, {-7.6, -25.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7.8, -25.5}, {-7.6, -25.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7.6, -45.}, {-7.4, -44.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7.4, -26.}, {-7.2, -25.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7.2, -45.}, {-7., -44.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6.8, -45.5}, {-6.6, -45.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6.6, -45.5}, {-6.4, -45.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6.4, -28.}, {-6.2, -27.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6.4, -27.5}, {-6.2, -27.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6.2, -46.}, {-6., -45.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6., -46.5}, {-5.8, -46.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6., -46.}, {-5.8, -45.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6., -28.5}, {-5.8, -28.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6., -28.}, {-5.8, -27.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.8, -46.5}, {-5.6, -46.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.6, -46.5}, {-5.4, -46.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.4, -47.}, {-5.2, -46.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.4, -46.5}, {-5.2, -46.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.2, -47.}, {-5., -46.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.2, -29.5}, {-5., -29.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.2, -29.}, {-5., -28.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5., -10.5}, {-4.8, -10.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.8, -47.5}, {-4.6, -47.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.8, -30.}, {-4.6, -29.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.8, -29.5}, {-4.6, -29.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.8, -11.}, {-4.6, -10.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.6, -47.5}, {-4.4, -47.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.6, -11.5}, {-4.4, -11.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.2, -48.}, {-4., -47.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.2, -13.}, {-4., -12.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4., -48.}, {-3.8, -47.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4., -13.5}, {-3.8, -13.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.6, -48.}, {-3.4, -47.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.6, -13.5}, {-3.4, -13.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.4, -48.5}, {-3.2, -48.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.4, -31.5}, {-3.2, -31.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.4, -31.}, {-3.2, -30.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.2, -15.}, {-3., -14.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3., -48.5}, {-2.8, -48.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3., -32.}, {-2.8, -31.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3., -31.5}, {-2.8, -31.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.8, -49.}, {-2.6, -48.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.8, -15.}, {-2.6, -14.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.6, -16.}, {-2.4, -15.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.2, -16.}, {-2., -15.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2., -17.}, {-1.8, -16.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1.8, -33.}, {-1.6, -32.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1.6, -17.}, {-1.4, -16.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1.2, -17.5}, {-1., -17.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1., -34.}, {-0.8, -33.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1., -33.5}, {-0.8, -33.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1., -18.5}, {-0.8, -18.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-0.6, -18.5}, {-0.4, -18.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-0.2, -34.5}, {0., -34.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-0.2, -19.}, {0., -18.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0., -35.}, {0.2, -34.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0., -34.5}, {0.2, -34.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0.2, -19.5}, {0.4, -19.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0.8, -35.5}, {1., -35.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.6, -36.5}, {1.8, -36.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.6, -36.}, {1.8, -35.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.8, -36.5}, {2., -36.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.2, -22.}, {2.4, -21.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.4, -9.}, {2.6, -8.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.6, -37.}, {2.8, -36.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.6, -23.}, {2.8, -22.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.6, -10.}, {2.8, -9.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3., -23.5}, {3.2, -23.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3., -23.}, {3.2, -22.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.4, -37.5}, {3.6, -37.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.4, -10.5}, {3.6, -10.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4., -24.5}, {4.2, -24.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4., -24.}, {4.2, -23.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4., -12.}, {4.2, -11.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.4, -12.5}, {4.6, -12.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.8, -13.}, {5., -12.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.2, -13.5}, {5.4, -13.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.4, -26.}, {5.6, -25.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.4, -25.5}, {5.6, -25.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.6, -14.}, {5.8, -13.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.8, -4.5}, {6., -4.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6., -26.5}, {6.2, -26.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6., -26.}, {6.2, -25.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6., -14.5}, {6.2, -14.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7., -27.5}, {7.2, -27.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.2, -5.5}, {7.4, -5.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.4, -15.5}, {7.6, -15.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.6, -28.}, {7.8, -27.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.6, -27.5}, {7.8, -27.}]}], 
+              "DelayedMouseEffectStyle"]}, StatusArea[#, 1]& , TagBoxNote -> 
+            "1"], "1", TooltipStyle -> {
+             GrayLevel[0], 20}], Annotation[#, 1, "Tooltip"]& ]}, {
+         Directive[
+          RGBColor[0.168302545, 0.130607505, 0.798991665]], 
+         TagBox[
+          TooltipBox[
+           TagBox[{
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7.8, -44.5}, {-7.6, -44.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7.6, -26.}, {-7.4, -25.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7.4, -45.}, {-7.2, -44.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7.4, -26.5}, {-7.2, -26.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7.2, -26.5}, {-7., -26.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7., -45.5}, {-6.8, -45.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-7., -27.}, {-6.8, -26.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6.8, -27.}, {-6.6, -26.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6.4, -46.}, {-6.2, -45.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6.2, -28.}, {-6., -27.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.8, -28.5}, {-5.6, -28.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.6, -28.5}, {-5.4, -28.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.2, -10.5}, {-5., -10.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5., -47.}, {-4.8, -46.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5., -29.5}, {-4.8, -29.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.6, -30.}, {-4.4, -29.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.4, -47.5}, {-4.2, -47.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.4, -30.}, {-4.2, -29.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.4, -12.5}, {-4.2, -12.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.4, -12.}, {-4.2, -11.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.2, -30.5}, {-4., -30.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4., -30.5}, {-3.8, -30.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.8, -48.}, {-3.6, -47.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.8, -31.}, {-3.6, -30.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.6, -31.}, {-3.4, -30.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.4, -14.5}, {-3.2, -14.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.4, -14.}, {-3.2, -13.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.2, -48.5}, {-3., -48.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.2, -31.5}, {-3., -31.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.8, -32.}, {-2.6, -31.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.6, -32.}, {-2.4, -31.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.6, -15.5}, {-2.4, -15.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.4, -32.5}, {-2.2, -32.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.2, -32.5}, {-2., -32.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2., -33.}, {-1.8, -32.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2., -16.5}, {-1.8, -16.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1.6, -33.}, {-1.4, -32.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1.6, -17.5}, {-1.4, -17.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1.4, -33.5}, {-1.2, -33.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1.2, -33.5}, {-1., -33.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1., -18.}, {-0.8, -17.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-0.8, -34.}, {-0.6, -33.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-0.6, -34.}, {-0.4, -33.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-0.6, -19.}, {-0.4, -18.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-0.4, -34.5}, {-0.2, -34.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-0.4, -19.}, {-0.2, -18.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-0.2, -19.5}, {0., -19.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0.2, -35.}, {0.4, -34.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0.2, -20.}, {0.4, -19.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0.4, -35.}, {0.6, -34.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0.6, -35.5}, {0.8, -35.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0.8, -20.5}, {1., -20.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1., -35.5}, {1.2, -35.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.2, -36.}, {1.4, -35.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.2, -7.5}, {1.4, -7.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.2, -7.}, {1.4, -6.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.4, -36.}, {1.6, -35.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.4, -21.5}, {1.6, -21.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.8, -8.}, {2., -7.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2., -36.5}, {2.2, -36.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2., -22.}, {2.2, -21.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.2, -36.5}, {2.4, -36.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.2, -22.5}, {2.4, -22.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.4, -37.}, {2.6, -36.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.4, -22.5}, {2.6, -22.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.6, -22.5}, {2.8, -22.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.8, -37.}, {3., -36.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3., -37.5}, {3.2, -37.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3., -10.5}, {3.2, -10.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3., -10.}, {3.2, -9.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.2, -37.5}, {3.4, -37.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.4, -23.5}, {3.6, -23.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.6, -38.}, {3.8, -37.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.8, -24.}, {4., -23.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.4, -24.5}, {4.6, -24.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.8, -25.}, {5., -24.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.8, -12.5}, {5., -12.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5., -25.5}, {5.2, -25.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.2, -13.}, {5.4, -12.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.6, -26.}, {5.8, -25.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.6, -13.5}, {5.8, -13.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.2, -26.5}, {6.4, -26.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.6, -27.}, {6.8, -26.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.8, -27.}, {7., -26.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7., -27.}, {7.2, -26.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.2, -27.5}, {7.4, -27.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.4, -27.5}, {7.6, -27.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.4, -16.}, {7.6, -15.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.6, -6.}, {7.8, -5.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.8, -16.5}, {8., -16.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.8, -16.}, {8., -15.5}]}], 
+              "DelayedMouseEffectStyle"]}, StatusArea[#, 2]& , TagBoxNote -> 
+            "2"], "2", TooltipStyle -> {
+             GrayLevel[0], 20}], Annotation[#, 2, "Tooltip"]& ]}, {
+         Directive[
+          RGBColor[0.17330309, 0.14123301, 0.80445333]], 
+         TagBox[
+          TooltipBox[
+           TagBox[{
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-8., -25.5}, {-7.8, -25.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-6.6, -27.5}, {-6.4, -27.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5.4, -29.}, {-5.2, -28.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.6, -12.}, {-4.4, -11.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.2, -12.5}, {-4., -12.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.8, -13.5}, {-3.6, -13.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.6, -14.}, {-3.4, -13.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3.2, -14.5}, {-3., -14.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-3., -15.}, {-2.8, -14.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.8, -15.5}, {-2.6, -15.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.4, -16.}, {-2.2, -15.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-2.2, -16.5}, {-2., -16.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1.8, -17.}, {-1.6, -16.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1.4, -17.5}, {-1.2, -17.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-1.2, -18.}, {-1., -17.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-0.8, -18.5}, {-0.6, -18.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0., -19.5}, {0.2, -19.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0.4, -20.}, {0.6, -19.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{0.6, -20.5}, {0.8, -20.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1., -21.}, {1.2, -20.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.2, -21.}, {1.4, -20.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.6, -21.5}, {1.8, -21.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.8, -22.}, {2., -21.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.8, -8.5}, {2., -8.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.4, -9.5}, {2.6, -9.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.8, -23.}, {3., -22.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.2, -23.5}, {3.4, -23.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.4, -11.}, {3.6, -10.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.6, -24.}, {3.8, -23.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4., -11.5}, {4.2, -11.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.2, -24.5}, {4.4, -24.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.2, -12.}, {4.4, -11.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.4, -12.}, {4.6, -11.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.6, -25.}, {4.8, -24.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.2, -25.5}, {5.4, -25.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.8, -26.}, {6., -25.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.8, -14.}, {6., -13.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6., -14.}, {6.2, -13.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.2, -14.5}, {6.4, -14.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.4, -26.5}, {6.6, -26.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.4, -14.5}, {6.6, -14.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.8, -15.}, {7., -14.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7., -15.5}, {7.2, -15.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.2, -15.5}, {7.4, -15.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.2, -6.}, {7.4, -5.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.6, -16.}, {7.8, -15.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.6, -6.5}, {7.8, -6.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.8, -28.}, {8., -27.5}]}], 
+              "DelayedMouseEffectStyle"]}, StatusArea[#, 3]& , TagBoxNote -> 
+            "3"], "3", TooltipStyle -> {
+             GrayLevel[0], 20}], Annotation[#, 3, "Tooltip"]& ]}, {
+         Directive[
+          RGBColor[0.178303635, 0.151858515, 0.809914995]], 
+         TagBox[
+          TooltipBox[
+           TagBox[{
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-5., -11.}, {-4.8, -10.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4.8, -11.5}, {-4.6, -11.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{-4., -13.}, {-3.8, -12.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2., -8.5}, {2.2, -8.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.6, -9.5}, {2.8, -9.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.8, -10.}, {3., -9.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.2, -10.5}, {3.4, -10.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.6, -11.}, {3.8, -10.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{3.8, -11.5}, {4., -11.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.6, -12.5}, {4.8, -12.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5., -13.}, {5.2, -12.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.4, -13.5}, {5.6, -13.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.6, -4.}, {5.8, -3.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{5.8, -4.}, {6., -3.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.2, -4.5}, {6.4, -4.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.6, -15.}, {6.8, -14.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.8, -5.5}, {7., -5.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.4, -6.}, {7.6, -5.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7.8, -6.5}, {8., -6.}]}], 
+              "DelayedMouseEffectStyle"]}, StatusArea[#, 4]& , TagBoxNote -> 
+            "4"], "4", TooltipStyle -> {
+             GrayLevel[0], 20}], Annotation[#, 4, "Tooltip"]& ]}, {
+         Directive[
+          RGBColor[0.18330417999999998`, 0.16248402, 0.81537666]], 
+         TagBox[
+          TooltipBox[
+           TagBox[{
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.4, -7.5}, {1.6, -7.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1.6, -8.}, {1.8, -7.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.2, -9.}, {2.4, -8.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6., -4.5}, {6.2, -4.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.4, -5.}, {6.6, -4.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.6, -5.}, {6.8, -4.5}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{7., -5.5}, {7.2, -5.}]}], 
+              "DelayedMouseEffectStyle"]}, StatusArea[#, 5]& , TagBoxNote -> 
+            "5"], "5", TooltipStyle -> {
+             GrayLevel[0], 20}], Annotation[#, 5, "Tooltip"]& ]}, {
+         Directive[
+          RGBColor[0.29473897, 0.37421309999999997`, 0.90487513]], 
+         TagBox[
+          TooltipBox[
+           TagBox[{
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.4, -2.5}, {6.6, -2.}]}], 
+              "DelayedMouseEffectStyle"]}, StatusArea[#, 24]& , TagBoxNote -> 
+            "24"], "24", TooltipStyle -> {
+             GrayLevel[0], 20}], Annotation[#, 24, "Tooltip"]& ]}, {
+         Directive[
+          RGBColor[0.7220006000000001, 0.30763076, 0.3078482]], 
+         TagBox[
+          TooltipBox[
+           TagBox[{
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{6.2, -2.5}, {6.4, -2.}]}], 
+              "DelayedMouseEffectStyle"]}, StatusArea[#, 177]& , TagBoxNote -> 
+            "177"], "177", TooltipStyle -> {
+             GrayLevel[0], 20}], Annotation[#, 177, "Tooltip"]& ]}, {
+         Directive[
+          RGBColor[0.534081, 0.0853132, 0.16669]], 
+         TagBox[
+          TooltipBox[
+           TagBox[{
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{1., -0.5}, {1.2, 0.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{2.6, -0.5}, {2.8, 0.}]}], 
+              "DelayedMouseEffectStyle"], 
+             TagBox[
+              DynamicBox[{
+                FEPrivate`If[
+                 CurrentValue["MouseOver"], 
+                 EdgeForm[{
+                   GrayLevel[0.5], 
+                   AbsoluteThickness[1.5], 
+                   Opacity[0.66]}], {}, {}], 
+                RectangleBox[{4.4, -1.5}, {4.6, -1.}]}], 
+              "DelayedMouseEffectStyle"]}, StatusArea[#, 201]& , TagBoxNote -> 
+            "201"], "201", TooltipStyle -> {
+             GrayLevel[0], 20}], 
+          Annotation[#, 201, "Tooltip"]& ]}}, {}}, {{}, {}}}, {
+      GrayLevel[0], 
+      AbsoluteThickness[3], 
+      CircleBox[{1.04, -0.2}, 0.8]}}, {
+    ContentSelectable -> False, AspectRatio -> 1, AxesOrigin -> {-10, -30}, 
+     Frame -> True, FrameLabel -> {None, None}, 
+     FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+     GridLines -> {None, None}, GridLinesStyle -> Directive[
+       GrayLevel[0.5, 0.4]], LabelStyle -> {
+       GrayLevel[0], 20}, PlotRange -> {{-10, 10}, {-30, 2}}, 
+     PlotRangeClipping -> True, PlotRangePadding -> {{
+        Scaled[0.05], 
+        Scaled[0.05]}, {
+        Scaled[0.05], 
+        Scaled[0.05]}}, Ticks -> {Automatic, Automatic}}], 
+   FormBox[
+    FormBox[
+     TemplateBox[{
+       FormBox[
+        StyleBox[
+         StyleBox[
+          PaneBox[
+           GraphicsBox[{
+             RasterBox[CompressedData["
+1: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
+              "], {{
+                Rational[-15, 2], 
+                Rational[-225, 2]}, {
+                Rational[15, 2], 
+                Rational[225, 2]}}], {Antialiasing -> False, 
+              AbsoluteThickness[0.1], 
+              Directive[
+               Opacity[0.3], 
+               GrayLevel[0]], 
+              LineBox[
+               NCache[{{
+                  Rational[15, 2], 
+                  Rational[-225, 2]}, {
+                  Rational[-15, 2], 
+                  Rational[-225, 2]}, {
+                  Rational[-15, 2], 
+                  Rational[225, 2]}, {
+                  Rational[15, 2], 
+                  Rational[225, 2]}, {
+                  Rational[15, 2], 
+                  Rational[-225, 2]}}, {{7.5, -112.5}, {-7.5, -112.5}, {-7.5, 
+                112.5}, {7.5, 112.5}, {7.5, -112.5}}]]}, {
+              CapForm[None], {}}, 
+             StyleBox[{Antialiasing -> False, 
+               StyleBox[
+                LineBox[{{7.5, -112.5}, {7.5, 112.5}}], {
+                 Directive[
+                  AbsoluteThickness[0.2], 
+                  Opacity[0.3], 
+                  GrayLevel[0]]}, StripOnInput -> False], 
+               StyleBox[
+                StyleBox[{{
+                   StyleBox[
+                    LineBox[{{{7.5, -57.097989949748744`}, 
+                    Offset[{4., 0}, {7.5, -57.097989949748744`}]}, {{
+                    7.5, -0.5653266331658292}, 
+                    Offset[{4., 0}, {7.5, -0.5653266331658292}]}, {{7.5, 
+                    55.96733668341709}, 
+                    Offset[{4., 0}, {7.5, 55.96733668341709}]}, {{7.5, 112.5}, 
+                    Offset[{4., 0}, {7.5, 112.5}]}}], {
+                    Directive[
+                    AbsoluteThickness[0.2], 
+                    GrayLevel[0.4]]}, StripOnInput -> False], 
+                   StyleBox[
+                    LineBox[{{{7.5, -102.32412060301507`}, 
+                    Offset[{2.5, 0.}, {7.5, -102.32412060301507`}]}, {{
+                    7.5, -91.01758793969849}, 
+                    Offset[{2.5, 0.}, {7.5, -91.01758793969849}]}, {{
+                    7.5, -79.71105527638191}, 
+                    Offset[{2.5, 0.}, {7.5, -79.71105527638191}]}, {{
+                    7.5, -68.40452261306532}, 
+                    Offset[{2.5, 0.}, {7.5, -68.40452261306532}]}, {{
+                    7.5, -45.79145728643216}, 
+                    Offset[{2.5, 0.}, {7.5, -45.79145728643216}]}, {{
+                    7.5, -34.48492462311558}, 
+                    Offset[{2.5, 0.}, {7.5, -34.48492462311558}]}, {{
+                    7.5, -23.178391959798994`}, 
+                    Offset[{2.5, 0.}, {7.5, -23.178391959798994`}]}, {{
+                    7.5, -11.871859296482413`}, 
+                    Offset[{2.5, 0.}, {7.5, -11.871859296482413`}]}, {{7.5, 
+                    10.741206030150755`}, 
+                    Offset[{2.5, 0.}, {7.5, 10.741206030150755`}]}, {{7.5, 
+                    22.047738693467338`}, 
+                    Offset[{2.5, 0.}, {7.5, 22.047738693467338`}]}, {{7.5, 
+                    33.35427135678392}, 
+                    Offset[{2.5, 0.}, {7.5, 33.35427135678392}]}, {{7.5, 
+                    44.6608040201005}, 
+                    Offset[{2.5, 0.}, {7.5, 44.6608040201005}]}, {{7.5, 
+                    67.27386934673368}, 
+                    Offset[{2.5, 0.}, {7.5, 67.27386934673368}]}, {{7.5, 
+                    78.58040201005025}, 
+                    Offset[{2.5, 0.}, {7.5, 78.58040201005025}]}, {{7.5, 
+                    89.88693467336684}, 
+                    Offset[{2.5, 0.}, {7.5, 89.88693467336684}]}, {{7.5, 
+                    101.19346733668341`}, 
+                    Offset[{2.5, 0.}, {7.5, 101.19346733668341`}]}}], {
+                    Directive[
+                    AbsoluteThickness[0.2], 
+                    GrayLevel[0.4], 
+                    Opacity[0.3]]}, StripOnInput -> False]}, 
+                  StyleBox[
+                   StyleBox[{{
+                    StyleBox[{
+                    InsetBox[
+                    FormBox["50", TraditionalForm], 
+                    Offset[{7., 0.}, {7.5, -57.097989949748744`}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["100", TraditionalForm], 
+                    Offset[{7., 0.}, {7.5, -0.5653266331658292}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["150", TraditionalForm], 
+                    Offset[{7., 0.}, {7.5, 55.96733668341709}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}], 
+                    InsetBox[
+                    FormBox["200", TraditionalForm], 
+                    Offset[{7., 0.}, {7.5, 112.5}], 
+                    ImageScaled[{0, 0.5}], Automatic, {1, 0}]}, {
+                    Directive[
+                    AbsoluteThickness[0.2], 
+                    GrayLevel[0.4]], {
+                    Directive[
+                    Opacity[1], 
+                    GrayLevel[0], FontSize -> 20], 
+                    Directive[
+                    Opacity[1], 
+                    GrayLevel[0], FontSize -> 20]}}, StripOnInput -> False], 
+                    
+                    StyleBox[{{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}}, {
+                    Directive[
+                    AbsoluteThickness[0.2], 
+                    GrayLevel[0.4], 
+                    Opacity[0.3]], {
+                    Directive[
+                    Opacity[1], 
+                    GrayLevel[0], FontSize -> 20], 
+                    Directive[
+                    Opacity[1], 
+                    GrayLevel[0], FontSize -> 20]}}, StripOnInput -> 
+                    False]}, {}}, {{
+                    Directive[
+                    Opacity[1], 
+                    GrayLevel[0], FontSize -> 20], 
+                    Directive[
+                    Opacity[1], 
+                    GrayLevel[0], FontSize -> 20]}}, StripOnInput -> False], {
+                   "GraphicsLabel"}, StripOnInput -> False]}, {
+                 "GraphicsTicks"}, StripOnInput -> False], {{
+                  Directive[
+                   AbsoluteThickness[0.2], 
+                   GrayLevel[0.4]], 
+                  Directive[
+                   AbsoluteThickness[0.2], 
+                   GrayLevel[0.4], 
+                   Opacity[0.3]]}}, StripOnInput -> False]}, {"GraphicsAxes"},
+               StripOnInput -> False]}, PlotRangePadding -> Scaled[0.02], 
+            PlotRange -> All, Frame -> True, 
+            FrameTicks -> {{False, False}, {True, False}}, FrameStyle -> 
+            Opacity[0], FrameTicksStyle -> Opacity[0], 
+            ImageSize -> {Automatic, 225}, BaseStyle -> {}], Alignment -> 
+           Left, AppearanceElements -> None, ImageMargins -> {{5, 5}, {5, 5}},
+            ImageSizeAction -> "ResizeToFit"], LineIndent -> 0, StripOnInput -> 
+          False], {
+          GrayLevel[0], FontSize -> 20, FontFamily -> "Arial"}, Background -> 
+         Automatic, StripOnInput -> False], TraditionalForm]}, "BarLegend", 
+      DisplayFunction -> (#& ), 
+      InterpretationFunction :> (RowBox[{"BarLegend", "[", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{
+               InterpretationBox[
+                RowBox[{
+                  TagBox["ColorDataFunction", "SummaryHead"], "[", 
+                  
+                  DynamicModuleBox[{
+                   Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+                   TemplateBox[{
+                    PaneSelectorBox[{False -> GridBox[{{
+                    PaneBox[
+                    ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxOpener"]], 
+                    ButtonFunction :> (Typeset`open$$ = True), Appearance -> 
+                    None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                    "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                    Dynamic[{Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"Name: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"ThermometerColors\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Gradient: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    StyleBox[
+                    GraphicsBox[{
+                    RasterBox[CompressedData["
+1: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
+                    "], {{0, 0}, {1, 1}}]}, {
+                    ImageSize -> 65, BaselinePosition -> Bottom, AspectRatio -> 
+                    NCache[
+                    Rational[1, 8], 0.125], PlotRange -> {{0, 1}, {0, 1}}}], 
+                    Selectable -> False, StripOnInput -> False], 
+                    "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}], True -> GridBox[{{
+                    PaneBox[
+                    ButtonBox[
+                    DynamicBox[
+                    FEPrivate`FrontEndResource[
+                    "FEBitmaps", "SummaryBoxCloser"]], 
+                    ButtonFunction :> (Typeset`open$$ = False), Appearance -> 
+                    None, BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+                    "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+                    Dynamic[{Automatic, 
+                    3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                    GridBox[{{
+                    RowBox[{
+                    TagBox["\"Name: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"ThermometerColors\"", "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Gradient: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    StyleBox[
+                    GraphicsBox[{
+                    RasterBox[CompressedData["
+1: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
+                    "], {{0, 0}, {1, 1}}]}, {
+                    ImageSize -> 65, BaselinePosition -> Bottom, AspectRatio -> 
+                    NCache[
+                    Rational[1, 8], 0.125], PlotRange -> {{0, 1}, {0, 1}}}], 
+                    Selectable -> False, StripOnInput -> False], 
+                    "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Domain: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox[
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "1"}], "}"}], "SummaryItem"]}]}, {
+                    RowBox[{
+                    TagBox["\"Class: \"", "SummaryItemAnnotation"], 
+                    "\[InvisibleSpace]", 
+                    TagBox["\"Gradients\"", "SummaryItem"]}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, 
+                    AutoDelete -> False, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+                    BaseStyle -> {
+                    ShowStringCharacters -> False, NumberMarks -> False, 
+                    PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                    False, GridBoxItemSize -> {
+                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                    BaselinePosition -> {1, 1}]}, 
+                    Dynamic[Typeset`open$$], ImageSize -> Automatic]}, 
+                    "SummaryPanel"], DynamicModuleValues :> {}], "]"}], 
+                ColorDataFunction[
+                "ThermometerColors", "Gradients", {0, 1}, Blend[
+                 "ThermometerColors", #]& ], Selectable -> False, Editable -> 
+                False, SelectWithContents -> True], ",", 
+               RowBox[{"{", 
+                 RowBox[{"1.`", ",", "201.`"}], "}"}]}], "}"}], ",", 
+           RowBox[{"LabelStyle", "\[Rule]", 
+             RowBox[{"{", 
+               RowBox[{
+                 
+                 TemplateBox[<|"color" -> GrayLevel[0]|>, 
+                  "GrayLevelColorSwatchTemplate"], ",", "20"}], "}"}]}], ",", 
+           
+           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}], ",", 
+           RowBox[{"LegendMarkerSize", "\[Rule]", "225"}], ",", 
+           RowBox[{"ScalingFunctions", "\[Rule]", 
+             RowBox[{"{", 
+               RowBox[{"Identity", ",", "Identity"}], "}"}]}], ",", 
+           RowBox[{"Charting`TickSide", "\[Rule]", "Right"}], ",", 
+           RowBox[{"ColorFunctionScaling", "\[Rule]", "True"}]}], "]"}]& )], 
+     TraditionalForm], TraditionalForm]},
+  "Legended",
+  DisplayFunction->(GridBox[{{
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"], 
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, GridBoxItemSize -> Automatic, 
+    BaselinePosition -> {1, 1}]& ),
+  Editable->True,
+  InterpretationFunction->(RowBox[{"Legended", "[", 
+     RowBox[{#, ",", 
+       RowBox[{"Placed", "[", 
+         RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{
+  3.966579870801511*^9, 3.966579908205269*^9, 3.966579962044478*^9, {
+   3.966580005986313*^9, 3.9665800101066*^9}, 3.9665800451040573`*^9, {
+   3.9665801949206753`*^9, 3.966580227947151*^9}, {3.966580364127364*^9, 
+   3.966580367906008*^9}, {3.966580556368383*^9, 3.966580665396811*^9}, {
+   3.966580727999214*^9, 3.966580740566227*^9}, {3.966580827081171*^9, 
+   3.966580917579174*^9}, {3.966581047808317*^9, 3.966581051269285*^9}, 
+   3.966581092937344*^9, 3.966581144083844*^9},
+ CellLabel->"Out[98]=",ExpressionUUID->"7d4c62be-7d53-4a13-a17c-f80be58b61f6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{"\"\<Fig2.png\>\"", ",", "fig2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.966581099770883*^9, 3.966581139413311*^9}},
+ CellLabel->"In[99]:=",ExpressionUUID->"b08cc08c-f891-484f-9746-da16966630c7"],
+
+Cell[BoxData["\<\"Fig2.png\"\>"], "Output",
+ CellChangeTimes->{3.966581147500736*^9},
+ CellLabel->"Out[99]=",ExpressionUUID->"1ab019f7-8c34-4e4e-b2ee-7f1eca7c0dba"]
+}, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1387.5, 852.},
@@ -44426,59 +47825,77 @@ Notebook[{
 Cell[558, 20, 264, 5, 29, "Input",ExpressionUUID->"4b532097-4932-48e7-9c45-2cbea00f756e"],
 Cell[CellGroupData[{
 Cell[847, 29, 178, 3, 45, "Subsubsection",ExpressionUUID->"3591df60-dd90-4bbc-b907-53ec2bf9eb28"],
-Cell[1028, 34, 994, 27, 92, "Input",ExpressionUUID->"96c91295-646b-4539-b872-d9d66db0fc5e"],
+Cell[1028, 34, 1040, 27, 92, "Input",ExpressionUUID->"96c91295-646b-4539-b872-d9d66db0fc5e"],
 Cell[CellGroupData[{
-Cell[2047, 65, 587, 15, 29, "Input",ExpressionUUID->"09ec1595-b1ec-4c82-aae0-df7ef7aae426"],
-Cell[2637, 82, 11382, 207, 282, "Output",ExpressionUUID->"4836edbe-89a8-4872-94c2-ae1cbc57380e"]
+Cell[2093, 65, 1400, 35, 136, "Input",ExpressionUUID->"dd3ec6c0-47f8-4b9e-83b7-5a55eff4d84e"],
+Cell[3496, 102, 516, 8, 33, "Output",ExpressionUUID->"dc1271c4-7cf4-4a4c-8a55-13f406a2a5b5"],
+Cell[4015, 112, 532, 8, 33, "Output",ExpressionUUID->"440a710f-5404-48e4-8208-0c4a9651c34b"],
+Cell[4550, 122, 531, 8, 33, "Output",ExpressionUUID->"f5033dbd-76cd-4c9a-8d07-dc50d3b66fb6"],
+Cell[5084, 132, 809, 18, 33, "Output",ExpressionUUID->"7409bb42-3f15-4e07-983e-3b33be5a8f03"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14056, 294, 1205, 31, 115, "Input",ExpressionUUID->"dd3ec6c0-47f8-4b9e-83b7-5a55eff4d84e"],
-Cell[15264, 327, 450, 8, 48, "Output",ExpressionUUID->"d16b1035-90d7-4fae-a3d6-7da53e168c9d"],
-Cell[15717, 337, 466, 8, 48, "Output",ExpressionUUID->"edd0df2e-bbcc-45ed-8ac8-f0e4614485be"],
-Cell[16186, 347, 464, 8, 48, "Output",ExpressionUUID->"51b45f65-84fc-4acf-a321-4a54dd71de5c"]
+Cell[5930, 155, 1855, 50, 51, "Input",ExpressionUUID->"50652d7f-6f7d-498c-acde-b63a7f82ad7f"],
+Cell[7788, 207, 13926, 252, 260, "Output",ExpressionUUID->"6edd8276-89ae-419f-9364-6463b21d1801"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21751, 464, 245, 4, 29, "Input",ExpressionUUID->"89ee1b6c-571c-4a1c-8634-2ceabb4b20f4"],
+Cell[21999, 470, 166, 2, 33, "Output",ExpressionUUID->"a9d21a05-2e65-4728-aeb1-73522f12ebad"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[16699, 361, 172, 3, 45, "Subsubsection",ExpressionUUID->"c78300f5-167d-40d4-8ff5-47be74d99090"],
-Cell[16874, 366, 10396, 169, 113, "Input",ExpressionUUID->"9f6a414d-dd58-4e30-aa94-5591fb06410d"],
-Cell[27273, 537, 5069, 92, 71, "Input",ExpressionUUID->"16e45fe9-b551-44c5-bf99-d04f4ecfd49e"],
+Cell[22214, 478, 172, 3, 45, "Subsubsection",ExpressionUUID->"c78300f5-167d-40d4-8ff5-47be74d99090"],
+Cell[22389, 483, 10396, 169, 113, "Input",ExpressionUUID->"9f6a414d-dd58-4e30-aa94-5591fb06410d"],
+Cell[32788, 654, 5069, 92, 71, "Input",ExpressionUUID->"16e45fe9-b551-44c5-bf99-d04f4ecfd49e"],
 Cell[CellGroupData[{
-Cell[32367, 633, 851, 24, 29, "Input",ExpressionUUID->"47c2ce70-3fca-478a-be4d-9e018aabe244"],
-Cell[33221, 659, 1038725, 17045, 264, "Output",ExpressionUUID->"c34f612c-4a8e-43c6-bc6c-e222a326c2d9"]
+Cell[37882, 750, 851, 24, 29, "Input",ExpressionUUID->"47c2ce70-3fca-478a-be4d-9e018aabe244"],
+Cell[38736, 776, 1038725, 17045, 264, "Output",ExpressionUUID->"c34f612c-4a8e-43c6-bc6c-e222a326c2d9"]
 }, Open  ]]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[1071995, 17710, 168, 3, 37, "Subsubsection",ExpressionUUID->"c9aefeb6-69e5-4116-89c7-0f095bcf2627"],
-Cell[1072166, 17715, 357, 9, 29, "Input",ExpressionUUID->"3ccd799e-d7d5-47f3-a1d2-d5436e9c77b7"],
-Cell[1072526, 17726, 1680, 47, 66, "Input",ExpressionUUID->"dd798513-fb11-4aec-b65b-0882ed7d2e86"],
+Cell[1077510, 17827, 168, 3, 37, "Subsubsection",ExpressionUUID->"c9aefeb6-69e5-4116-89c7-0f095bcf2627"],
+Cell[1077681, 17832, 357, 9, 29, "Input",ExpressionUUID->"3ccd799e-d7d5-47f3-a1d2-d5436e9c77b7"],
+Cell[1078041, 17843, 1680, 47, 66, "Input",ExpressionUUID->"dd798513-fb11-4aec-b65b-0882ed7d2e86"],
 Cell[CellGroupData[{
-Cell[1074231, 17777, 2880, 58, 95, "Input",ExpressionUUID->"f6d5178e-8994-4740-98d6-d8a1a8968305"],
-Cell[1077114, 17837, 1596204, 26189, 402, 1544640, 25343, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"57a0d0e6-3cdc-4987-9864-5028af2ff467"]
+Cell[1079746, 17894, 2880, 58, 95, "Input",ExpressionUUID->"f6d5178e-8994-4740-98d6-d8a1a8968305"],
+Cell[1082629, 17954, 1596204, 26189, 388, 1544640, 25343, "CachedBoxData", "BoxData", "Output",ExpressionUUID->"57a0d0e6-3cdc-4987-9864-5028af2ff467"]
 }, Open  ]],
-Cell[2673333, 44029, 518, 12, 52, "Input",ExpressionUUID->"f165b677-2491-48de-b391-ccab29b571b3"],
+Cell[2678848, 44146, 518, 12, 52, "Input",ExpressionUUID->"f165b677-2491-48de-b391-ccab29b571b3"],
 Cell[CellGroupData[{
-Cell[2673876, 44045, 1100, 30, 116, "Input",ExpressionUUID->"5f98340e-3d36-451f-b0bc-ea32edeee765"],
-Cell[2674979, 44077, 392, 7, 23, "Print",ExpressionUUID->"b71a2e38-6133-4a33-9a8b-0d9b45c0ee2d"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[2675408, 44089, 1343, 35, 116, "Input",ExpressionUUID->"ab463f7f-3a93-4b48-98f0-ea8c453de1c9"],
-Cell[2676754, 44126, 365, 7, 23, "Print",ExpressionUUID->"8865a273-9e1a-4e42-af1c-5c939ed81dbc"]
+Cell[2679391, 44162, 1100, 30, 116, "Input",ExpressionUUID->"5f98340e-3d36-451f-b0bc-ea32edeee765"],
+Cell[2680494, 44194, 392, 7, 23, "Print",ExpressionUUID->"b71a2e38-6133-4a33-9a8b-0d9b45c0ee2d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2677156, 44138, 1961, 50, 163, "Input",ExpressionUUID->"0e335aee-7584-4563-b95c-e00a41d23689"],
-Cell[2679120, 44190, 533, 9, 23, "Print",ExpressionUUID->"1990e0e1-5390-4334-ae90-ac4b47386b1d"]
+Cell[2680923, 44206, 1343, 35, 116, "Input",ExpressionUUID->"ab463f7f-3a93-4b48-98f0-ea8c453de1c9"],
+Cell[2682269, 44243, 365, 7, 23, "Print",ExpressionUUID->"8865a273-9e1a-4e42-af1c-5c939ed81dbc"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2679690, 44204, 2189, 57, 163, "Input",ExpressionUUID->"1fd85553-5889-4722-8d35-d02bdf56afd7"],
-Cell[2681882, 44263, 293, 5, 23, "Print",ExpressionUUID->"94744a77-b364-4fe2-abbd-02f05fc81b00"]
+Cell[2682671, 44255, 1961, 50, 163, "Input",ExpressionUUID->"0e335aee-7584-4563-b95c-e00a41d23689"],
+Cell[2684635, 44307, 533, 9, 23, "Print",ExpressionUUID->"1990e0e1-5390-4334-ae90-ac4b47386b1d"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2682212, 44273, 2113, 52, 161, "Input",ExpressionUUID->"493c6a9f-92b7-4498-a464-e37ea593a305"],
-Cell[2684328, 44327, 315, 6, 23, "Print",ExpressionUUID->"852bf38f-85c2-4b0e-a426-e688ab06ec53"]
+Cell[2685205, 44321, 2189, 57, 163, "Input",ExpressionUUID->"1fd85553-5889-4722-8d35-d02bdf56afd7"],
+Cell[2687397, 44380, 293, 5, 23, "Print",ExpressionUUID->"94744a77-b364-4fe2-abbd-02f05fc81b00"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[2684680, 44338, 2288, 58, 161, "Input",ExpressionUUID->"c2acac42-8f05-4c6e-bbd5-75466d9feceb"],
-Cell[2686971, 44398, 315, 6, 23, "Print",ExpressionUUID->"b0eefa14-4a89-45d4-820b-6f3b4b49d381"]
+Cell[2687727, 44390, 2113, 52, 161, "Input",ExpressionUUID->"493c6a9f-92b7-4498-a464-e37ea593a305"],
+Cell[2689843, 44444, 315, 6, 23, "Print",ExpressionUUID->"852bf38f-85c2-4b0e-a426-e688ab06ec53"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2690195, 44455, 2288, 58, 161, "Input",ExpressionUUID->"c2acac42-8f05-4c6e-bbd5-75466d9feceb"],
+Cell[2692486, 44515, 315, 6, 23, "Print",ExpressionUUID->"b0eefa14-4a89-45d4-820b-6f3b4b49d381"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2692850, 44527, 187, 3, 37, "Subsubsection",ExpressionUUID->"cab94f02-6112-4bcc-91f8-e816aeee8ed0"],
+Cell[2693040, 44532, 343, 7, 29, "Input",ExpressionUUID->"b557d90d-4657-4ade-bf05-60d7b1b56e93"],
+Cell[2693386, 44541, 317, 8, 29, "Input",ExpressionUUID->"b0a33e98-08bb-4cab-9ee5-de3f5a6eeb56"],
+Cell[CellGroupData[{
+Cell[2693728, 44553, 1729, 40, 71, "Input",ExpressionUUID->"9964ee54-4296-41ff-aa41-bf27487987ca"],
+Cell[2695460, 44595, 129833, 3195, 370, "Output",ExpressionUUID->"7d4c62be-7d53-4a13-a17c-f80be58b61f6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2825330, 47795, 245, 4, 29, "Input",ExpressionUUID->"b08cc08c-f891-484f-9746-da16966630c7"],
+Cell[2825578, 47801, 164, 2, 33, "Output",ExpressionUUID->"1ab019f7-8c34-4e4e-b2ee-7f1eca7c0dba"]
 }, Open  ]]
 }, Open  ]]
 }

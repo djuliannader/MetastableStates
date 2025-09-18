@@ -1,5 +1,6 @@
 # MetastableStates
-This repository provides code for the analysis of metastable (Gamow) states arising in the quantum escape problem
+
+This repository provides codes for the analysis of metastable (Gamow) states arising in the quantum escape problem
 
 
 clone as:
